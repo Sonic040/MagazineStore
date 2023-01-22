@@ -1,0 +1,59 @@
+﻿@model MagazineSrore.Models.User1
+
+@{
+
+    ViewData["Title"] = "Rigister";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<div id="page-content" class="page-content">
+    <div class="banner">
+        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('/HomeAssets/img/bg-header.jpg');">
+            <div class="container">
+                <h1 class="pt-5">
+                    Login Page
+                </h1>
+                <p class="lead">
+                    Save time and leave the groceries to us.
+                </p>
+
+                <div class="card card-login mb-5">
+                    <div class="card-body">
+                        <form class="form-horizontal" asp-action="Login">
+                            <div class="form-group row mt-3" asp-validation-summary="ModelOnly">
+
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <input class="form-control" type="email" required="" placeholder="Email" asp-for="Email">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <input class="form-control" type="Password" required="" placeholder="Password" asp-for="Password">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12 d-flex justify-content-between align-items-center">
+                                    <div class="checkbox">
+                                        <input id="checkbox0" type="checkbox" name="remember">
+                                        <label for="checkbox0" class="mb-0"> Remember Me? </label>
+                                    </div>
+                                    <a href="login.html" class="text-light"><i class="fa fa-bell"></i> Forgot password?</a>
+                                </div>
+                            </div>
+                            <div class="form-group row text-center mt-4">
+                                <div class="col-md-12">
+                                    <button type="submit" value="Create" class="btn btn-primary btn-block text-uppercase">Log In</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

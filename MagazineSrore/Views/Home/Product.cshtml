@@ -1,0 +1,77 @@
+﻿@*@model IEnumerable<MagazineSrore.Models.Product>*@
+@model  IEnumerable<JoinTable>
+
+    @{
+    ViewData["Title"] = "Product";
+    Layout = "~/Views/Shared/_UserLayout1.cshtml";
+    }
+
+<div id="page-content" class="page-content">
+    <div class="banner">
+        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('/HomeAssets/img/bg-header.jpg'); ">
+            <div class="container">
+                <h1 class="pt-5">
+                    Shopping Page
+                </h1>
+                <p class="lead">
+                    Save time and leave the groceries to us.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+    <div id="page-content" class="page-content">
+        <section id="mostwanted">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <h2 class="title">All Product</h2>
+                        <form asp-action="Product" asp-controller="Home" method="post">
+                            <div class="input-group">
+                                <input type="text" name="name" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                <button type="submit" value="search" class="btn btn-primary">search</button>
+                            </div>
+                            </form>
+                            <div class="product-carousel owl-carousel">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="item">
+                                        <div class="card card-product">
+
+                                            <div class="card-badge">
+                                                <div class="card-badge-container left">
+                                                    <span class="badge badge-primary">
+                                                        @item.category.Cname
+                                                    </span>
+                                                </div>
+                                                <img src="~/image/@item.product.Imagepath" alt="Card image 2" class="card-img-top">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title">
+                                                    <a href="detail-product.html">@item.product.Pname</a>
+                                                </h4>
+                                                <div class="card-price">
+                                                    <span class="discount">Rp. 300.000</span>
+                                                    <span class="reguler">Rp . @item.product.Price.00</span>
+                                                </div>
+                                                <a  class="btn btn-block btn-primary" asp-action="Pay" asp-route-id="@item.product.Pid">
+                                                    Buy Now
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                }
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+

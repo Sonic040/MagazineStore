@@ -1,0 +1,64 @@
+﻿@model MagazineSrore.Models.Product
+@{
+    ViewData["Title"] = "Pay";
+    Layout = "~/Views/Shared/_UserLayout1.cshtml";
+}
+
+
+
+<div id="page-content" class="page-content">
+    <div class="banner">
+        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('/HomeAssets/img/bg-header.jpg');">
+            <div class="container">
+                <h1 class="pt-5">
+                    The Meat Product Title
+                </h1>
+                <p class="lead">
+                    Save time and leave the groceries to us.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="product-detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="slider-zoom">
+                        <a href="~/image/@Model.Imagepath" class="cloud-zoom" rel="transparentImage: 'data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==', useWrapper: false, showTitle: false, zoomWidth:'500', zoomHeight:'500', adjustY:0, adjustX:10" id="cloudZoom">
+                            <img alt="Detail Zoom thumbs image" src="~/image/@Model.Imagepath" style="width: 100%;">
+                        </a>
+                    </div>
+
+                    <!--<div class="slider-thumbnail">
+                        <ul class="d-flex flex-wrap p-0 list-unstyled">
+                            <li>
+                                <a class="cloud-zoom-gallery">-->
+                                    @*<img itemprop="image" src="~/HomeAssets/image/@Model.Imagepath" style="width:135px;">*@
+                                <!--</a>
+                            </li>
+                        </ul>
+                    </div>-->
+
+                </div>
+                <div class="col-sm-6">
+
+                    <strong>@Model.Pname</strong><br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>
+                                <strong>Price</strong> (/Pack)<br>
+                                <span class="price">@Model.Price</span>
+                            </p>
+                        </div>
+                    </div>
+                    <a class="btn btn-block btn-primary" asp-action="Transaction"  asp-route-id="@Model.Pid">
+                        Buy Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
